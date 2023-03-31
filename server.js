@@ -1,11 +1,13 @@
 const express = require("express");
 const app = express();
-const { resolve } = require("path");
+var cors = require('cors')
 const env = require("dotenv").config({ path: "./.env" });
 
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY, {
   apiVersion: "2022-08-01",
 });
+
+app.use(cors());
 
 app.get("/", (req, res) => {
   res.send("Hello World");
