@@ -8,7 +8,7 @@ const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY, {
 });
 
 app.get("/", (res) => {
-  res.sendFile("Hello World");
+  res.send("Hello World");
 });
 
 app.post("/create-contribution", async (req, res) => {
