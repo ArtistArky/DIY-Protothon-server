@@ -15,9 +15,10 @@ app.get("/", (req, res) => {
 
 app.post("/create-contribution", async (req, res) => {
   try {
+    const amount = req.query.amount * 100;
     const paymentIntent = await stripe.paymentIntents.create({
       currency: "INR",
-      amount: 500000,
+      amount: amount,
       automatic_payment_methods: { enabled: true },
     });
 
